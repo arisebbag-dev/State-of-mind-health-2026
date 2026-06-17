@@ -23,11 +23,13 @@ export default function CTAButton({
   variant = "primary",
   size = "md",
   className = "",
+  onClick,
   ...props
 }) {
   return (
     <Link
       href={href}
+      onClick={onClick}
       className={`${base} ${sizes[size]} ${variants[variant]} ${className}`}
       {...props}
     >
