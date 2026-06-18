@@ -2,22 +2,18 @@ import Reveal from "./Reveal";
 
 const badges = [
   {
-    icon: "📋",
     label: "Board Certified",
     value: "Psychiatric Mental Health Nurse Practitioner",
   },
   {
-    icon: "🎓",
     label: "Education",
     value: "Hunter Bellevue School of Nursing",
   },
   {
-    icon: "👥",
     label: "Experience",
     value: "Inpatient & outpatient psychiatric care",
   },
   {
-    icon: "🧬",
     label: "Specialization",
     value: "Genetic & hormone testing integration",
   },
@@ -43,7 +39,9 @@ export default function TrustBadges() {
               delay={i * 0.05}
               className="rounded-xl2 border border-forest/10 bg-canvas p-6 text-center transition-all hover:border-forest/20 hover:shadow-card"
             >
-              <div className="text-4xl mb-3">{badge.icon}</div>
+              <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-apricot/20 flex items-center justify-center">
+                <span className="text-forest font-bold">✓</span>
+              </div>
               <h3 className="text-sm font-medium text-forest-deep mb-2">
                 {badge.label}
               </h3>

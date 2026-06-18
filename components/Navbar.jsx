@@ -2,98 +2,111 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import CTAButton from "./CTAButton";
 
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
-
-function Logo() {
-  return (
-    <Link href="/" className="flex items-center gap-2.5 group" aria-label="State of Mind Health home">
-      <span className="grid h-9 w-9 place-items-center rounded-full bg-forest text-canvas font-display text-lg leading-none transition-colors group-hover:bg-forest-deep">
-        S
-      </span>
-      <span className="font-display text-[1.35rem] leading-none text-forest-deep">
-        State of Mind<span className="text-apricot-deep">.</span>
-      </span>
-    </Link>
-  );
-}
-
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { label: "Home", href: "/" },
+    { label: "Services", href: "/services" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-forest/10 bg-canvas/85 backdrop-blur-md">
-      <nav className="container-x flex h-16 items-center justify-between">
-        <Logo />
+    <nav className="sticky top-0 z-50 border-b border-forest/10 bg-canvas/95 backdrop-blur-sm">
+      <div className="container-x">
+        <div className="flex items-center justify-between h-16 sm:h-20">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 rounded-full bg-forest flex items-center justify-center text-canvas font-display font-bold text-lg group-hover:bg-apricot transition-colors">
+              S
+            </div>
+            <span className="font-display text-lg font-semibold text-forest-deep hidden sm:inline">
+              State of Mind.
+            </span>
+          </Link>
 
-        {/* Desktop */}
-        <div className="hidden items-center gap-8 md:flex">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-[0.95rem] text-ink-soft transition-colors hover:text-forest"
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-ink-soft hover:text-forest-deep transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Desktop CTA Button */}
+          <div className="hidden md:block">
+            <CTAButton href="/contact" size="md">
+              Schedule Consultation
+            </CTAButton>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 hover:bg-forest/10 rounded-lg transition-colors"
+            aria-label="Toggle menu"
+          >
+            <svg
+              className="w-6 h-6 text-forest-deep"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              {l.label}
-            </Link>
-          ))}
-          <CTAButton href="/contact" size="md">
-            Schedule Appointment
-          </CTAButton>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+              />
+            </svg>
+          </button>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-label="Toggle menu"
-          className="grid h-10 w-10 place-items-center rounded-full border border-forest/20 text-forest md:hidden"
-        >
-          <span className="sr-only">Menu</span>
-          <div className="space-y-1.5">
-            <span className={`block h-0.5 w-5 bg-current transition-transform ${open ? "translate-y-2 rotate-45" : ""}`} />
-            <span className={`block h-0.5 w-5 bg-current transition-opacity ${open ? "opacity-0" : ""}`} />
-            <span className={`block h-0.5 w-5 bg-current transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`} />
-          </div>
-        </button>
-      </nav>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden border-t border-forest/10 bg-canvas md:hidden"
-          >
-            <div className="container-x flex flex-col gap-1 py-4">
-              {links.map((l) => (
-                <Link
-                  key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-xl px-3 py-3 text-ink-soft transition-colors hover:bg-sage-mist hover:text-forest"
-                >
-                  {l.label}
-                </Link>
-              ))}
-              <CTAButton href="/contact" className="mt-2 w-full" onClick={() => setOpen(false)}>
-                Schedule Appointment
-              </CTAButton>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden border-t border-forest/10 bg-canvas overflow-hidden"
+            >
+              <div className="py-4 space-y-3 px-4">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block py-2 px-3 text-sm font-medium text-ink-soft hover:text-forest-deep hover:bg-forest/5 rounded transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <div className="pt-2">
+                  <CTAButton
+                    href="/contact"
+                    size="md"
+                    className="w-full justify-center"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Schedule Consultation
+                  </CTAButton>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </nav>
   );
 }

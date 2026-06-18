@@ -63,7 +63,6 @@ export default function SolutionsSection() {
                   : "border-forest/10 bg-canvas hover:shadow-card hover:border-forest/20"
               }`}
             >
-              <div className="text-4xl mb-4">{service.icon}</div>
               <h3 className="text-lg font-medium text-forest-deep mb-2">
                 {service.title}
               </h3>
