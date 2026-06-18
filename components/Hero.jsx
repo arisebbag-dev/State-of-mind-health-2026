@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import CTAButton from "./CTAButton";
 import Link from "next/link";
 
 const container = {
@@ -20,7 +19,24 @@ export default function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden bg-gradient-to-b from-canvas via-canvas to-apricot/5">
+      {/* Large watermark text background - FIXED VERSION */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        <div 
+          className="absolute text-canvas/50 font-display font-bold text-center"
+          style={{
+            fontSize: "clamp(80px, 25vw, 500px)",
+            lineHeight: 1,
+            letterSpacing: "-0.02em",
+            whiteSpace: "nowrap",
+            wordSpacing: "9999px",
+            maxWidth: "90%",
+          }}
+        >
+          State of Mind Health
+        </div>
+      </div>
+
       {/* Enhanced ambient glow with layered breathing effect */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         {/* Primary breathing glow */}
@@ -66,7 +82,7 @@ export default function Hero() {
 
           <motion.h1
             variants={item}
-            className="text-5xl leading-[1.05] text-forest-deep sm:text-6xl md:text-7xl"
+            className="text-5xl leading-[1.05] text-forest-deep sm:text-6xl md:text-7xl font-serif"
           >
             Feel like{" "}
             <span className="marker-highlight italic text-forest">yourself</span>{" "}
@@ -75,28 +91,13 @@ export default function Hero() {
 
           <motion.p
             variants={item}
-            className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-ink-soft"
+            className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-ink-soft font-light"
           >
             Compassionate, personalized psychiatric care serving Rockland County
             and the greater tri-state area. Expert medication management,
             thoughtful testing, and a provider who actually listens — so we can
             help you bring out the real you.
           </motion.p>
-
-          <motion.div
-            variants={item}
-            className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
-          >
-            <CTAButton href="/contact" size="lg">
-              Schedule Your Appointment →
-            </CTAButton>
-            <Link
-              href="/contact"
-              className="text-[0.95rem] text-forest underline-offset-4 transition-colors hover:text-apricot-deep hover:underline"
-            >
-              New patient? Start your intake form
-            </Link>
-          </motion.div>
 
           <motion.p
             variants={item}

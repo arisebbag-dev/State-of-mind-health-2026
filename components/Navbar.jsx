@@ -24,8 +24,8 @@ export default function Navbar() {
             <div className="w-10 h-10 rounded-full bg-forest flex items-center justify-center text-canvas font-display font-bold text-lg group-hover:bg-apricot transition-colors">
               S
             </div>
-            <span className="font-display text-lg font-semibold text-forest-deep hidden sm:inline">
-              State of Mind.
+            <span className="font-display text-lg font-semibold text-forest-deep group-hover:text-apricot transition-colors">
+              State of Mind Health
             </span>
           </Link>
 
