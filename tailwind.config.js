@@ -1,62 +1,42 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,jsx,ts,tsx}",
-    "./components/**/*.{js,jsx,ts,tsx}",
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        // Warm canvas background
-        canvas: "#FAF7F1",
-        // Deep healing forest green — primary / trust
-        forest: {
-          DEFAULT: "#2C5545",
-          deep: "#1F3D31",
-          soft: "#3D6B58",
-        },
-        // Muted sage
-        sage: {
-          DEFAULT: "#6E9080",
-          mist: "#E7EFE9",
-          deep: "#52715F",
-        },
-        // Deep slate ink for text
-        ink: {
-          DEFAULT: "#1E2A26",
-          soft: "#475850",
-          muted: "#6B7A73",
-        },
-        // Warm apricot — used sparingly for highlights & glow
-        apricot: {
-          DEFAULT: "#E0915E",
-          soft: "#F0C7A6",
-          deep: "#C87844",
-        },
+        // Therapeutic Calm Palette
+        canvas: '#F5F3EF',      // Warm cream background
+        slate: '#5B7C99',       // Primary soft blue
+        'slate-deep': '#3D5569',
+        'slate-soft': '#E3E8F0',
+        sage: '#7BA384',        // Secondary sage green
+        'sage-deep': '#5A7A62',
+        'sage-soft': '#E8EFE7',
+        accent: '#F0E6D2',      // Warm accent
+        ink: '#2D3E4A',         // Deep blue-gray text
+        'ink-soft': '#5A6B77',
+        'ink-muted': '#8A9AA5',
       },
       fontFamily: {
-        display: ["var(--font-display)", "Georgia", "serif"],
-        sans: ["var(--font-body)", "system-ui", "-apple-system", "sans-serif"],
-      },
-      maxWidth: {
-        content: "72rem",
-        prose: "44rem",
+        display: 'var(--font-display)',
+        body: 'var(--font-body)',
+        serif: '"Crimson Text", serif',
       },
       borderRadius: {
-        xl2: "1.75rem",
+        'xl2': '16px',
+        'xl3': '20px',
+      },
+      spacing: {
+        'safe-top': 'env(safe-area-inset-top)',
+        'safe-bottom': 'env(safe-area-inset-bottom)',
       },
       boxShadow: {
-        soft: "0 18px 50px -20px rgba(31, 61, 49, 0.25)",
-        card: "0 10px 30px -16px rgba(31, 61, 49, 0.18)",
-      },
-      keyframes: {
-        breathe: {
-          "0%, 100%": { transform: "scale(1)", opacity: "0.55" },
-          "50%": { transform: "scale(1.12)", opacity: "0.8" },
-        },
-      },
-      animation: {
-        breathe: "breathe 9s ease-in-out infinite",
+        card: '0 4px 16px rgba(91, 124, 153, 0.08)',
+        'card-hover': '0 8px 24px rgba(91, 124, 153, 0.12)',
       },
     },
   },
