@@ -21,15 +21,32 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden">
-      {/* Ambient "clearer state of mind" glow — the signature element */}
+      {/* Enhanced ambient glow with layered breathing effect */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
+        {/* Primary breathing glow */}
         <div
-          className={`absolute -top-32 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-apricot-soft/40 blur-3xl ${
+          className={`absolute -top-32 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-gradient-to-br from-apricot-soft via-apricot/30 to-transparent blur-3xl ${
             reduce ? "" : "animate-breathe"
           }`}
+          style={{
+            animation: reduce ? "none" : "breathe 8s ease-in-out infinite",
+          }}
         />
-        <div className="absolute -bottom-40 -left-24 h-[30rem] w-[30rem] rounded-full bg-sage-mist blur-3xl" />
-        <div className="absolute -right-24 top-20 h-[26rem] w-[26rem] rounded-full bg-sage-mist/70 blur-3xl" />
+        {/* Secondary supporting glow */}
+        <div
+          className="absolute -bottom-40 -left-24 h-[30rem] w-[30rem] rounded-full bg-sage-mist blur-3xl"
+          style={{
+            animation: reduce ? "none" : "breathe 10s ease-in-out infinite 1s",
+            opacity: 0.7,
+          }}
+        />
+        <div
+          className="absolute -right-24 top-20 h-[26rem] w-[26rem] rounded-full bg-sage-mist/70 blur-3xl"
+          style={{
+            animation: reduce ? "none" : "breathe 9s ease-in-out infinite 2s",
+            opacity: 0.6,
+          }}
+        />
       </div>
 
       <div className="container-x relative">
@@ -41,9 +58,9 @@ export default function Hero() {
         >
           <motion.p
             variants={item}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-forest/15 bg-canvas/70 px-4 py-1.5 text-sm text-forest"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-forest/15 bg-canvas/70 px-4 py-1.5 text-sm text-forest backdrop-blur-sm"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-apricot-deep" />
+            <span className="h-1.5 w-1.5 rounded-full bg-apricot-deep animate-pulse" />
             Psychiatric care in Suffern, NY &amp; telehealth
           </motion.p>
 

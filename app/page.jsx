@@ -1,14 +1,11 @@
 import Hero from "@/components/Hero";
 import ProblemSection from "@/components/ProblemSection";
 import SolutionsSection from "@/components/SolutionsSection";
+import TrustBadges from "@/components/TrustBadges";
+import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
 import ProviderTeaser from "@/components/ProviderTeaser";
 import FinalCTA from "@/components/FinalCTA";
-
-export const metadata = {
-  title: "Psychiatric Care in Suffern, NY | State of Mind Health",
-  description:
-    "Compassionate psychiatric care & medication management in Rockland County, NY. In-person & telehealth for anxiety, depression & ADHD. Book today.",
-};
 
 export default function HomePage() {
   return (
@@ -16,7 +13,10 @@ export default function HomePage() {
       <Hero />
       <ProblemSection />
       <SolutionsSection />
+      <TrustBadges />
+      <Testimonials />
       <ProviderTeaser />
+      <FAQ />
       <FinalCTA />
     </>
   );
