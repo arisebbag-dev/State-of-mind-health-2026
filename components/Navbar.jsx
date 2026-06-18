@@ -16,15 +16,15 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-forest/10 bg-canvas/95 backdrop-blur-sm">
+    <nav className="sticky top-0 z-50 border-b border-slate/10 bg-canvas/95 backdrop-blur-sm">
       <div className="container-x">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-full bg-forest flex items-center justify-center text-canvas font-display font-bold text-lg group-hover:bg-apricot transition-colors">
+            <div className="w-10 h-10 rounded-full bg-slate flex items-center justify-center text-canvas font-display font-bold text-lg group-hover:bg-sage transition-colors duration-300">
               S
             </div>
-            <span className="font-display text-lg font-semibold text-forest-deep group-hover:text-apricot transition-colors">
+            <span className="font-display text-lg font-semibold text-slate-deep group-hover:text-sage-deep transition-colors duration-300">
               State of Mind Health
             </span>
           </Link>
@@ -35,7 +35,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-ink-soft hover:text-forest-deep transition-colors"
+                className="text-sm font-medium text-ink-soft hover:text-slate-deep transition-colors duration-300"
               >
                 {link.label}
               </Link>
@@ -52,11 +52,11 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 hover:bg-forest/10 rounded-lg transition-colors"
+            className="md:hidden p-2 hover:bg-slate/10 rounded-lg transition-colors duration-300"
             aria-label="Toggle menu"
           >
             <svg
-              className="w-6 h-6 text-forest-deep"
+              className="w-6 h-6 text-slate-deep"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -79,14 +79,14 @@ export default function Navbar() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden border-t border-forest/10 bg-canvas overflow-hidden"
+              className="md:hidden border-t border-slate/10 bg-canvas overflow-hidden"
             >
               <div className="py-4 space-y-3 px-4">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="block py-2 px-3 text-sm font-medium text-ink-soft hover:text-forest-deep hover:bg-forest/5 rounded transition-colors"
+                    className="block py-2 px-3 text-sm font-medium text-ink-soft hover:text-slate-deep hover:bg-slate/5 rounded transition-colors duration-300"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.label}

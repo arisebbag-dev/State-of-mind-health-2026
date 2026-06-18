@@ -32,16 +32,16 @@ const services = [
 
 export default function SolutionsSection() {
   return (
-    <section className="py-16 sm:py-20 md:py-24">
+    <section className="solutions py-16 sm:py-20 md:py-24">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center mb-12">
-          <Reveal as="p" className="text-sm font-medium uppercase tracking-wider text-apricot-deep">
+          <Reveal as="p" className="text-sm font-medium uppercase tracking-wider text-sage-deep">
             Our services
           </Reveal>
-          <Reveal as="h2" delay={0.05} className="mt-3 text-3xl sm:text-4xl text-forest-deep">
+          <Reveal as="h2" delay={0.05} className="mt-3 text-3xl sm:text-4xl text-slate-deep font-serif font-bold">
             Comprehensive care, multiple approaches.
           </Reveal>
-          <Reveal as="p" delay={0.1} className="mt-4 text-base sm:text-lg text-ink-soft">
+          <Reveal as="p" delay={0.1} className="mt-4 text-base sm:text-lg text-ink-soft font-light">
             From medication management to genetic testing, we tailor every service to your needs.
           </Reveal>
         </div>
@@ -51,21 +51,21 @@ export default function SolutionsSection() {
             <Reveal
               key={service.title}
               delay={i * 0.04}
-              className={`rounded-xl2 border transition-all p-6 sm:p-7 ${
+              className={`rounded-xl2 border transition-all duration-300 p-6 sm:p-7 ${
                 service.featured
-                  ? "border-apricot/30 bg-gradient-to-br from-apricot/8 to-apricot/3 shadow-sm hover:shadow-md hover:border-apricot/50"
-                  : "border-forest/10 bg-canvas hover:shadow-card hover:border-forest/20"
+                  ? "border-sage/30 bg-gradient-to-br from-sage-soft/40 to-sage-soft/10 shadow-md hover:shadow-lg hover:border-sage/50"
+                  : "border-slate/15 bg-canvas hover:shadow-md hover:border-slate/25"
               }`}
             >
-              <h3 className="text-lg font-medium text-forest-deep mb-2">
+              <h3 className="text-lg font-medium text-slate-deep mb-2 font-serif">
                 {service.title}
               </h3>
               {service.featured && (
-                <span className="inline-block mb-3 px-2.5 py-1 text-xs font-medium rounded-full bg-apricot/20 text-apricot-deep">
+                <span className="inline-block mb-3 px-2.5 py-1 text-xs font-medium rounded-full bg-sage-soft text-sage-deep">
                   Featured
                 </span>
               )}
-              <p className="text-[0.95rem] text-ink-soft leading-relaxed">
+              <p className="text-[0.95rem] text-ink-soft leading-relaxed font-light">
                 {service.desc}
               </p>
             </Reveal>

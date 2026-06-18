@@ -10,11 +10,11 @@ export default function CTAButton({
 }) {
   const variants = {
     primary:
-      "bg-apricot text-forest-deep hover:bg-apricot-deep active:scale-95 relative group overflow-hidden",
+      "bg-slate text-canvas hover:bg-slate-deep active:scale-95 relative group overflow-hidden shadow-md hover:shadow-lg transition-all duration-300",
     secondary:
-      "border-2 border-forest text-forest hover:bg-forest hover:text-canvas active:scale-95",
+      "border-2 border-slate text-slate-deep hover:bg-slate/10 active:scale-95 transition-all duration-300",
     accent:
-      "bg-forest text-canvas hover:bg-forest-deep active:scale-95",
+      "bg-sage text-canvas hover:bg-sage-deep active:scale-95 transition-all duration-300",
   };
 
   const sizes = {
@@ -25,8 +25,8 @@ export default function CTAButton({
 
   const classes = `
     inline-flex items-center justify-center font-medium rounded-full
-    transition-all duration-200 no-underline
-    focus:outline-none focus:ring-2 focus:ring-apricot focus:ring-offset-2
+    transition-all duration-300 no-underline
+    focus:outline-none focus:ring-2 focus:ring-slate focus:ring-offset-2
     ${variants[variant]}
     ${sizes[size]}
     ${className}
