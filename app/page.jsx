@@ -1,4 +1,3 @@
-import Hero from "@/components/Hero";
 import ProviderIntro from "@/components/ProviderIntro";
 import ApproachPillars from "@/components/ApproachPillars";
 import ServicesStrip from "@/components/ServicesStrip";
@@ -9,7 +8,6 @@ import FinalCTA from "@/components/FinalCTA";
 export default function HomePage() {
   return (
     <>
-      <Hero />
       <ProviderIntro />
       <ApproachPillars />
       <ServicesStrip />

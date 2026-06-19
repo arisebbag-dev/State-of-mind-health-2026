@@ -72,9 +72,6 @@ export default function Hero() {
             variants={item}
             className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
           >
-            <CTAButton href="/intake" size="lg">
-              Schedule Your Consultation
-            </CTAButton>
             <CTAButton href="/services" variant="secondary" size="lg">
               Explore our approach
             </CTAButton>
