@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-canvas: #faf7f1;
+    --color-forest: #2c5545;
+    --color-forest-deep: #1f3d31;
+    --color-forest-soft: #e7efe9;
+    --color-sage-mist: #e7efe9;
+    --color-ink: #1e2a26;
+    --color-ink-soft: #3d4c46;
+    --color-ink-muted: #6b7a72;
+    --color-apricot: #e0915e;
+    --color-apricot-deep: #c57a42;
+    --color-apricot-soft: #f0dcc9;
+
+    @media (prefers-color-scheme: dark) {
+      --color-canvas: #0f1513;
+      --color-forest: #5a9e84;
+      --color-forest-deep: #7fb8a0;
+      --color-forest-soft: #1a2d26;
+      --color-sage-mist: #1a2d26;
+      --color-ink: #e8ede9;
+      --color-ink-soft: #b8c5ba;
+      --color-ink-muted: #7a8d81;
+      --color-apricot: #e8a96b;
+      --color-apricot-deep: #f5b884;
+      --color-apricot-soft: #3d2811;
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .marker-highlight {
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(224, 145, 94, 0.3) 40%,
+      rgba(224, 145, 94, 0.15) 60%,
+      transparent 100%
+    );
+    position: relative;
+    padding: 0 0.25em;
+  }
+
+  /* Focus ring for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-apricot focus:ring-offset-2;
+  }
+
+  /* Smooth section spacing */
+  section {
+    @apply py-16 sm:py-20 md:py-24;
+  }
+
+  /* Tighter spacing for specific sections */
+  section.hero {
+    @apply py-20 sm:py-28;
+  }
+
+  section.problem {
+    @apply py-12 sm:py-16 md:py-20;
+  }
+
+  section.solutions {
+    @apply py-16 sm:py-20 md:py-24;
+  }
+}
+
+@layer utilities {
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Smooth scroll fade in */
+  .animate-in {
+    animation: fadeInUp 0.5s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Breathing animation for hero glow */
+  @keyframes breathe {
+    0%,
+    100% {
+      opacity: 0.7;
+      transform: scale(1) translateY(0);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.05) translateY(-10px);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-breathe {
+      animation: breathe 8s ease-in-out infinite;
+    }
+  }
+
+  /* Subtle shadow for cards */
+  .shadow-card {
+    box-shadow: 0 4px 12px rgba(44, 85, 69, 0.08);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .shadow-card {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  /* Rounded xl2 variant */
+  .rounded-xl2 {
+    border-radius: 16px;
+  }
+
+  /* Enhanced link hover states */
+  .link-hover {
+    @apply transition-colors duration-200 hover:text-apricot;
+  }
+
+  /* Gradient text utility */
+  .gradient-text {
+    @apply bg-gradient-to-r from-apricot to-apricot-deep bg-clip-text text-transparent;
+  }
+
+  /* Smooth section transitions */
+  .section-transition {
+    @apply transition-all duration-300 ease-out;
+  }
+}
+
+/* Accessibility: reduce motion respects prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
