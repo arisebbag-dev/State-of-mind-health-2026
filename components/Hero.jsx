@@ -82,7 +82,7 @@ export default function Hero() {
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-xl3 border border-olive/15 bg-gradient-to-br from-olive-soft to-sand-deep shadow-soft-lg">
               <Image
-                src="/nechama.jpg"
+                src="/nechama.png"
                 alt="Nechama Keller-Sabel, PMHNP-BC"
                 fill
                 priority

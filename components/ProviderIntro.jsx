@@ -11,7 +11,7 @@ export default function ProviderIntro() {
           <Reveal className="relative mx-auto w-full max-w-sm lg:mx-0">
             <div className="relative aspect-[4/5] overflow-hidden rounded-xl3 border border-olive/15 bg-gradient-to-br from-sand-deep to-olive-soft shadow-soft">
               <Image
-                src="/nechama.jpg"
+                src="/nechama.png"
                 alt="Nechama Keller-Sabel, PMHNP-BC"
                 fill
                 sizes="(max-width: 768px) 90vw, 24rem"
