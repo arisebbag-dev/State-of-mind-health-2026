@@ -1,7 +1,7 @@
 ASSETS IN THIS BUILD
 ====================
-nechama.png — IMPORTANT: this image is used for the provider portrait.
-Replace it with the real headshot using the same filename: nechama.png. The code already displays it in the
+nechama.jpeg — IMPORTANT: this image is used for the provider portrait.
+Replace it with the real headshot using the same filename: nechama.jpeg. The code already displays it in the
 hero, the "Meet Nechama" section, and the About page — no code changes needed,
 just overwrite the file.
 
