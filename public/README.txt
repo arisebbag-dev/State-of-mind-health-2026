@@ -1,8 +1,7 @@
 ASSETS IN THIS BUILD
 ====================
-nechama.jpg — IMPORTANT: the nechama.jpg currently in this /public folder is a
-BLANK PLACEHOLDER (solid color) just so the build works. REPLACE IT with the
-real headshot, same filename: nechama.jpg. The code already displays it in the
+nechama.png — IMPORTANT: this image is used for the provider portrait.
+Replace it with the real headshot using the same filename: nechama.png. The code already displays it in the
 hero, the "Meet Nechama" section, and the About page — no code changes needed,
 just overwrite the file.
 
